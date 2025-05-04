@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -N ic_fastpm
+#PBS -V
+#PBS -lselect=1:ncpus=64:mem=1500gb 
+#PBS -j oe
+#PBS -o ../../log/
+
+echo -e "\n\n======$PBS_JOBID - start `date`======\n"
+
+module load intel gsl impi
+cd "$PBS_O_WORKDIR"
+export OMP_NUM_THREADS=1
+
+mpirun -n 64 ../lib/fastpm-desi/src/fastpm ic-settings.lua
+
+echo -e "\n\n======finish $PBS_JOBID -  `date`======\n"
