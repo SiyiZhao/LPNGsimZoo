@@ -1,9 +1,9 @@
 
-Nmesh         1024          % This is the size of the FFT grid used to 
+Nmesh         256          % This is the size of the FFT grid used to 
                            % compute the displacement field. One
                            % should have Nmesh >= Nsample.  
 
-Nsample       1024          % sets the maximum k that the code uses,
+Nsample       256          % sets the maximum k that the code uses,
                            % i.e. this effectively determines the
                            % Nyquist frequency that the code assumes,
                            % k_Nyquist = 2*PI/Box * Nsample/2
@@ -14,13 +14,13 @@ Nsample       1024          % sets the maximum k that the code uses,
                            % set Nmesh=Nsample and use glass1_le or equivalent for GlassFile
                            
 
-Box             1000.0    % Periodic box size of simulation, Mpc/h 
+Box             250.0    % Periodic box size of simulation, Mpc/h 
 
 FileBase         ics          % Base-filename of output files
-OutputDir        ../../data/ic2LPT/L1000fnl100r1001  % Directory for output
+OutputDir        ../../data/ic2LPT/L250fnl100r1001  % Directory for output
 
 GlassFile        glass1_le 
-GlassTileFac     1024        % Unless you know better, set it equal to Nmesh=Nsample 
+GlassTileFac     256        % Unless you know better, set it equal to Nmesh=Nsample 
 
 
 Omega            0.3089       % Total matter density  (at z=0)

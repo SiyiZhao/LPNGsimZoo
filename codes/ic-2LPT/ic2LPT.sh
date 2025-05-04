@@ -12,7 +12,7 @@ module load gnu9 mpich gsl
 cd "$PBS_O_WORKDIR"
 export OMP_NUM_THREADS=1
 
-mkdir -p ../../data/ic2LPT/L1000fnl100r1001
+mkdir -p ../../data/ic2LPT/L250fnl100r1001
 mpirun -n 48 ../lib/PNG-2LPTic/2LPTnonlocal settings.param 
 
 echo -e "\n\n======finish $PBS_JOBID -  `date`======\n"
