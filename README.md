@@ -30,6 +30,18 @@ See the details in the [Nbodycode.md](notes/Nbodycode.md) file.
 
 ---
 
+## Structure of the repo
+
+- README.md: this file.
+- notes: additional documentation and notes related to the project.
+- codes
+  - lib
+  - pylib
+  - test
+  - [specific works]
+- data: the outputs which will be ignored by git, can be soft linked to the data directory in your computer. 
+- log: the log files which will be ignored by git.
+
 ## Dependency & Submodules
 
 This repo contains several submodules.
