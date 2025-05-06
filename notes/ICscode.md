@@ -2,6 +2,13 @@
 
 We test several codes that *generate the Initial Conditions (ICs) of N-body simulations*.
 
+## Prepare
+
+The ICs codes need inputs of linear power spectrum (or transfer function) as well as cosmology parameters.
+
+We recommand to run `ic-input/cosmo.ipynb` first, where you can set the cosmology parameters and generate the linear power spectrum (and transfer function).
+
+When generating ICs, you should check the cosmology parameters in the configuration files, and move the output of `ic-input/cosmo.ipynb` to the working directory. 
 
 ## PNG-2LPTic
 
@@ -19,6 +26,6 @@ We use the version of FastPM that *is used in the DESI-PNG project*, so we call 
 We first compare *the output of FastPM-DESI* with *the output of PNG-2LPTic* codes.
 
 We use the following setup:
-- boxL = 1 Gpc/h, grid = 1024, 
+- boxL = 1 Gpc/h, grid = 256, 
 - cosmology = Planck2015Table4LastColumn, z = 99,
 - $f_{\rm NL} = 100$.
