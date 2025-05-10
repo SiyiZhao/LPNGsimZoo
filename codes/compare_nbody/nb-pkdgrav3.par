@@ -1,0 +1,43 @@
+from accuracy import classic_theta_switch,classic_replicas_switch
+
+achOutName      = "/home/czhao/sims/nbody/pkdgrav3_test"
+
+# Initial Condition
+achInFile       = "/home/czhao/sims/IC_Quijote/ics_for_pkdgrav3_new.hdf5"
+dBoxSize        = 1000
+dRedFrom        = 127
+
+# Cosmology
+h               = 0.6711
+dOmega0         = 0.3175
+dOmegab         = 0.0000
+dLambda         = 0.6825
+
+iStartStep      = 0
+nSteps          = 100
+dRedTo          = 0.0
+
+# Cosmological Simulation
+bComove         = True          # Use comoving coordinates
+bPeriodic       = True          # with a periodic box
+bEwald          = True          # enable Ewald periodic boundaries
+
+# Logging/Output
+iOutInterval    = 10
+bDoDensity      = True
+bVDetails       = True
+
+bOverwrite      = True
+bParaRead       = True          # Read in parallel
+bParaWrite      = True         # Write in parallel (does not work on all file systems)
+nParaRead      = 8             # Limit number of simultaneous readers to this
+nParaWrite     = 8             # Limit number of simultaneous writers to this
+
+# Accuracy Parameters
+bEpsAccStep     = True          # Choose eps/a timestep criteria
+dTheta          = classic_theta_switch()        # 0.40, 0.55, 0.70 switch
+nReplicas       = classic_replicas_switch()     # 1 if theta > 0.52 otherwise 2
+
+# Memory and performance
+bMemUnordered   = True          # iOrder replaced by potential and group id
+bNewKDK         = True          # No accelerations in the particle, dual tree possible
