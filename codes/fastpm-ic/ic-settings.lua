@@ -2,8 +2,8 @@
 ------ Size of the simulation---------- 
 
 -- For Testing
-nc = 1024
-boxsize = 1000.0
+nc = 256
+boxsize = 250.0
 -------- Time Sequence ----
 time_step = {0.01}
 
@@ -42,4 +42,4 @@ loglevel=0                 -- 0=verbose increase value to reduce output msgs
 -------- Output ---------------
 
 -- Dark matter particle outputs (all particles)
-write_snapshot= '../../data/L1000fnl100r1001/ic/ic'       -- comment out to suppress snapshot output
+write_snapshot= '../../data/L250fnl100r1001/ic/ic'       -- comment out to suppress snapshot output
