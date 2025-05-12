@@ -1,9 +1,9 @@
 from accuracy import classic_theta_switch,classic_replicas_switch
 
-achOutName      = "/home/czhao/sims/nbody/pkdgrav3_test"
+achOutName      = "/home/czhao/sims/nbody_correct/pkdgrav3_test"
 
 # Initial Condition
-achInFile       = "/home/czhao/sims/IC_Quijote/ics_for_pkdgrav3_new.hdf5"
+achInFile       = "/home/czhao/sims/IC_Quijote/ics_for_pkdgrav3_correct.hdf5"
 dBoxSize        = 1000
 dRedFrom        = 127
 
@@ -14,7 +14,7 @@ dOmegab         = 0.0000
 dLambda         = 0.6825
 
 iStartStep      = 0
-nSteps          = 100
+nSteps          = 1000
 dRedTo          = 0.0
 
 # Cosmological Simulation
@@ -23,7 +23,7 @@ bPeriodic       = True          # with a periodic box
 bEwald          = True          # enable Ewald periodic boundaries
 
 # Logging/Output
-iOutInterval    = 10
+iOutInterval    = 100
 bDoDensity      = True
 bVDetails       = True
 

@@ -10,6 +10,7 @@ if len(sys.argv) != 3:
     exit(1)
 
 
-from_gadget2binary(sys.argv[1], sys.argv[2], bMemSoft=True, ref_soft=48.828125)
+#from_gadget2binary(sys.argv[1], sys.argv[2], bMemSoft=True, ref_soft=48.828125)
+from_gadget2binary(sys.argv[1], sys.argv[2], bMemSoft=True, ref_soft=50)
 
 # Softening: 1/40 of interparticle spacing
