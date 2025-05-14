@@ -3,6 +3,7 @@
 We test several Nbody codes. 
 These works are done on a remote computer, so pay attention to the paths.
 
+Read the details in [Cheng's notes](./nbody-code.md).
 
 ## PKDgrav3
 
