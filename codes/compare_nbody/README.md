@@ -1,6 +1,7 @@
 # Nbody codes 
 
 We test several Nbody codes. 
+These works are done on a remote computer, so pay attention to the paths.
 
 
 ## PKDgrav3
@@ -16,3 +17,9 @@ The test is with the following settings:
 It takes ~2 hours on 3090, or ~1 hour on H200.
 
 We also test the code without GPU acceleration on H200, it takes half an hour more.
+
+## MP-Gadget
+
+We test the [MP-Gadget code](https://github.com/MP-Gadget/MP-Gadget) with the same configurations as Quijote.
+
+- The input IC and output snapshot of MP-Gadget is in bigfile format.
