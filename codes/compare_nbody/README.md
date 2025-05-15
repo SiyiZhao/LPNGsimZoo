@@ -19,6 +19,15 @@ It takes ~2 hours on 3090, or ~1 hour on H200.
 
 We also test the code without GPU acceleration on H200, it takes half an hour more.
 
+### FoF Halos
+
+The inputs at this step are: `<linking length> [minimum particle number]`, refer to [Quijote paper](https://arxiv.org/abs/1909.05273), the linking length is 0.2 times the mean interparticle separation, and the minimum particle number is 20.
+
+We first try to find FoF halos with the PKDgrav3 code. Refer the [docs](https://pkdgrav3.readthedocs.io/en/latest/extensions.html#PKDGRAV.fof), and see also the [issue](https://bitbucket.org/dpotter/pkdgrav3/issues/39/an-error-in-postprocessing-fof-halo-finder). But it seems there are still some bugs in the code, it takes a long time to run without useful output.
+
+Then we choose [nbodykit.algorithms.fof.FOF](https://nbodykit.readthedocs.io/en/latest/api/_autosummary/nbodykit.algorithms.fof.html#nbodykit.algorithms.fof.FOF) to find the FoF halos. See `pkd_nbfof.py`, where we first read Tipsy snapshots to get particles positions and velocities, and then run the FoF algorithm. Finally, the output is saved in bigfile format.
+
+
 ## MP-Gadget
 
 We test the [MP-Gadget code](https://github.com/MP-Gadget/MP-Gadget) with the same configurations as Quijote.
