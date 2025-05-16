@@ -1,3 +1,6 @@
+#  %% [markdown]
+# Compare pkdgrav3 / mp-gadget outputs with Quijote: matter power spectrum
+
 # %%
 import numpy as np
 from matplotlib import pyplot as plt
