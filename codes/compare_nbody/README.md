@@ -27,13 +27,42 @@ We first try to find FoF halos with the PKDgrav3 code. Refer the [docs](https://
 
 Then we choose [nbodykit.algorithms.fof.FOF](https://nbodykit.readthedocs.io/en/latest/api/_autosummary/nbodykit.algorithms.fof.html#nbodykit.algorithms.fof.FOF) to find the FoF halos. See `pkd_nbfof.py`, where we first read Tipsy snapshots to get particles positions and velocities, and then run the FoF algorithm. Finally, the output is saved in bigfile format.
 
-#### HMF 
-
-We compare the HMF with Quijote, as [Quijote doc/Reading FoF](https://quijote-simulations.readthedocs.io/en/latest/Examples/Reading_FoF.html) suggested. See `plot/HMF.py` for the details.
-
+We find that the nbodykit FoF algorithm saves the halos with particle numbers > than `nmin`, but not equal, so we reset `nmin` to 19 to be consistant with the Quijote paper.
+It takes ~20 mins to find halos with 512^3 particles, no parallel.
 
 ## MP-Gadget
 
 We test the [MP-Gadget code](https://github.com/MP-Gadget/MP-Gadget) with the same configurations as Quijote.
 
 - The input IC and output snapshot of MP-Gadget is in bigfile format.
+
+## Results 
+
+### Matter Power Spectrum
+
+![](../../figs/compare_nbody.png)
+
+The shadow region is 1%, as [a paper](https://arxiv.org/pdf/1503.05920) suggested. Their conclusion is that the differences between `pkdgrav3`, `gadget3` and `Ramses` are within 1% for $k<1h/{\rm Mpc}$, and 3% for $k<10h/{\rm Mpc}$. (The last one is out of our resolution.)
+
+In our results, pkdgrav3 agrees well with Quijote (except the first point). But MP-Gadget is not, it may be due to some configurations are not the same as Quijote, still need to check.
+
+### Halo Mass Function
+
+We compare the HMF with Quijote, as [Quijote doc/Reading FoF](https://quijote-simulations.readthedocs.io/en/latest/Examples/Reading_FoF.html) suggested. See `plot/HMF.py` for the details.
+
+The results are 
+
+![](../../figs/pkdgrav3_quijote_hmf.png)
+
+The shadow region is 5%. 
+PKDgrav3 agrees well with Quijote except the largest halos, but it seems that our HMF is more smooth.
+
+### Halo Power Spectrum
+
+We compare the halo power spectrum with Quijote. The halos of Quijote are downloaded from the public data, while the power spectra of halos are measured by the `Pylians` code with the same settings, refer `halo_ps.py` for the details.
+
+The results are 
+
+![](../../figs/pkdgrav3_quijote_hpk.png)
+
+The shadow region is 2%. The two cases are consistent in a wide region except the first point.
