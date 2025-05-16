@@ -27,6 +27,10 @@ We first try to find FoF halos with the PKDgrav3 code. Refer the [docs](https://
 
 Then we choose [nbodykit.algorithms.fof.FOF](https://nbodykit.readthedocs.io/en/latest/api/_autosummary/nbodykit.algorithms.fof.html#nbodykit.algorithms.fof.FOF) to find the FoF halos. See `pkd_nbfof.py`, where we first read Tipsy snapshots to get particles positions and velocities, and then run the FoF algorithm. Finally, the output is saved in bigfile format.
 
+#### HMF 
+
+We compare the HMF with Quijote, as [Quijote doc/Reading FoF](https://quijote-simulations.readthedocs.io/en/latest/Examples/Reading_FoF.html) suggested. See `plot/HMF.py` for the details.
+
 
 ## MP-Gadget
 

@@ -29,7 +29,6 @@ mp = mass_box / ngrid**3 # M_sun/h
 
 # %%
 halo_mass = halo_len[1:] * mp
-logMh = np.log10(halo_mass)
 
 # %% [markdown]
 # ## Quijote halos
@@ -54,12 +53,34 @@ Np_h   = FoF.GroupLen                #Number of CDM particles in the halo. Even 
 # ## HMF
 
 # %%
-log_mass_h = np.log10(mass_h)
-bins = np.linspace(min(logMh.min(), log_mass_h.min()), max(logMh.max(), log_mass_h.max()), 50)
-plt.hist(logMh, bins=bins, histtype='step', label='PKDGRAV3+nbodykit.fof')
-plt.hist(log_mass_h, bins=bins, histtype='step', label='Quijote')
-plt.yscale('log')
-plt.xlabel(r'$\log_{10} M_h \, [M_\odot]$')
-plt.ylabel('Number of halos')
-plt.legend()
-plt.savefig('../../figs/pkdgrav3_quijote_hmf.png', dpi=300)
+min_mass = 1e13 #minimum mass in Msun/h
+max_mass = 6e15 #maximum mass in Msun/h
+bins     = 30   #number of bins in the HMF
+
+# Correct the masses of the FoF halos
+mass_h = mass_h*(1.0-Np_h**(-0.6))
+
+bins_mass = np.logspace(np.log10(min_mass), np.log10(max_mass), bins+1)
+mass_mean = 10**(0.5*(np.log10(bins_mass[1:])+np.log10(bins_mass[:-1])))
+dM        = bins_mass[1:] - bins_mass[:-1]
+
+# compute the halo mass function (number of halos per unit volume per unit mass)
+HMF_quijote = np.histogram(mass_h, bins=bins_mass)[0]/(dM*boxL**3)
+halo_mass = halo_mass*(1.0-halo_len[1:]**(-0.6))
+HMF_pkdgrav3 = np.histogram(halo_mass, bins=bins_mass)[0]/(dM*boxL**3)
+
+fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True, gridspec_kw={'hspace': 0, 'height_ratios': [2, 1]})
+ax1.plot(mass_mean, HMF_quijote, label='Quijote halos', color='C0')
+ax1.plot(mass_mean, HMF_pkdgrav3, '--', label='PKDgrav3+nbodykit.fof', color='C1')
+ax1.set_ylabel(r'$HMF~[h^4M_\odot^{-1}{\rm Mpc}^{-3}]$')
+ax1.set_xscale('log')
+ax1.set_yscale('log')
+ax1.legend()
+ax2.plot(mass_mean, HMF_pkdgrav3/HMF_quijote, label='PKDgrav3/Quijote', color='C2')
+ax2.axhline(1.0, color='gray', linestyle='--')
+ax2.axhspan(0.95, 1.05, color='gray', alpha=0.3)
+ax2.set_xlabel(r'$M_{\rm halo}~[h^{-1}M_\odot]$')
+# ax2.set_ylabel(r'$HMF_{\rm pkdgrav3}/HMF_{\rm Quijote}$')
+ax2.set_xscale('log')
+ax2.legend()
+fig.savefig('../../figs/pkdgrav3_quijote_hmf.png', dpi=300, bbox_inches='tight')
