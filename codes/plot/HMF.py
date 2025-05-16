@@ -11,7 +11,7 @@ from matplotlib import pyplot as plt
 # ## pkdgrav halo in bigfile
 
 # %%
-filename = '../../data/l/pkdgrav3_test.01000_fof'
+filename = '../../data/l/pkdgrav3_test.01000_fof_nmin19'
 
 with bigfile.File(filename) as bf:
     boxL = bf['Header'].attrs['BoxSize'][0]

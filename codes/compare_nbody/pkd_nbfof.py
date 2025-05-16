@@ -31,8 +31,8 @@ def read_tipsy(name, offset=0, count=-1):
 
 file_name = sys.argv[1]
 boxL = 1000 # Mpc/h
-linking_length = 0.2
-nmin = 20
+linking_length = float(sys.argv[2]) 
+nmin = int(sys.argv[3])
 
 print(f"Reading {file_name} with box size {boxL} Mpc/h")
 header, particles = read_tipsy(file_name)
@@ -55,6 +55,6 @@ print(f"ArrayCatalog created.")
 fof = FOF(cat, linking_length=linking_length, nmin=nmin)
 fof.run()
 halos = fof.find_features()
-print(f"Found {len(halos)} halos with nmin={nmin} and linking length={linking_length} Mpc/h.")
-halos.save(file_name + '_fof/fof')
-print(f"Saved halos to {file_name}_fof/fof")
+print(f"Found {len(halos)} halos with nmin={nmin} and linking length={linking_length} * boxL/Ngrid.")
+halos.save(file_name + '_halo/fof')
+print(f"Saved halos to {file_name}_halo/fof")
