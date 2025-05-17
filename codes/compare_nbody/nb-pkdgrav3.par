@@ -1,9 +1,9 @@
 from accuracy import classic_theta_switch,classic_replicas_switch
 
-achOutName      = "/home/czhao/sims/nbody_correct/pkdgrav3_test"
+achOutName      = "/work/home/siyizhao/sims/nbody/pkdgrav3_test"
 
 # Initial Condition
-achInFile       = "/home/czhao/sims/IC_Quijote/ics_for_pkdgrav3_correct.hdf5"
+achInFile       = "/work/home/siyizhao/sims/IC_Quijote/ics_for_pkdgrav3_correct.hdf5"
 dBoxSize        = 1000
 dRedFrom        = 127
 

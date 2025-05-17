@@ -1,4 +1,5 @@
 #!/bin/bash
+# @r88
 
 PREFIX="logs/$1"
 

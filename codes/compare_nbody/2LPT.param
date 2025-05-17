@@ -14,9 +14,9 @@ Nsample          512       % sets the maximum k that the code uses,
 Box              1000000.0      % Periodic box size of simulation
 
 FileBase         ics           % Base-filename of output files
-OutputDir        /home/czhao/sims/IC_Quijote/            % Directory for output
+OutputDir        /work/home/siyizhao/sims/IC_Quijote/raw            % Directory for output
 
-GlassFile        /root/main/2lpt/GLASS/dummy_glass_dmonly_64.dat  % Glass-File
+GlassFile        /work/home/siyizhao/codes/2lpt/GLASS/dummy_glass_dmonly_64.dat  % Glass-File
 GlassTileFac     8                % Number of times the glass file is
                                   % tiled in each dimension (must be
                                   % an integer)
@@ -46,7 +46,7 @@ WhichSpectrum    2         % "1" selects Eisenstein & Hu spectrum,
                            % otherwise, Efstathiou parametrization is used
 
 
-FileWithInputSpectrum   /root/main/2lpt/CAMB_TABLES/CAMB_matterpow_0.dat  % filename of tabulated MATTER powerspectrum from CAMB
+FileWithInputSpectrum   /work/home/siyizhao/codes/2lpt/CAMB_TABLES/CAMB_matterpow_0.dat  % filename of tabulated MATTER powerspectrum from CAMB
                                            
 
 InputSpectrum_UnitLength_in_cm  3.085678e24 % defines length unit of tabulated
