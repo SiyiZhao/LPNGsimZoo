@@ -1,4 +1,4 @@
-# MP_Gadget
+﻿# MP_Gadget
 
 ## repositories
 
@@ -317,6 +317,10 @@ mpirun -n 32 /root/main/pkdgrav3/build/pkdgrav3 nb-pkdgrav3.par
 - 1000 steps
    - CPU + GPU: 233m25.109s
 
+## 海光 cpu  
+
+- 1000 steps
+  - CPU only: real	28:23:08  (user	2241504.51  sys	1028060.48)
 
 
 # CUBE
