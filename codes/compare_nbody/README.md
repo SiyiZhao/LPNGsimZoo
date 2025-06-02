@@ -19,6 +19,8 @@ It takes ~2 hours on 3090, or ~1 hour on H200.
 
 We also test the code without GPU acceleration on H200, it takes half an hour more.
 
+There were some tests on the ShuGuang's machine, but it's much more slow than the LianTai's computer, see details in `ShuGuang.md`.
+
 ### FoF Halos
 
 The inputs at this step are: `<linking length> [minimum particle number]`, refer to [Quijote paper](https://arxiv.org/abs/1909.05273), the linking length is 0.2 times the mean interparticle separation, and the minimum particle number is 20.
